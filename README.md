@@ -2,17 +2,7 @@
 WebRTC（Web Real-Time Communications）是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。WebRTC 包含的这些标准使用户在无需安装任何插件或者第三方的软件的情况下，创建点对点（Peer-to-Peer）的数据分享和电话会议成为可能。
 
 ## 音视频通信为什么选择webrtc
-### 自研
-
-### webrtc的客户端架构
-<img src="https://cdn.avdancedu.com/image/article/select_webrtc/webrtc_arch.jpg">
-从WebRTC架构图中你可以了解到，它大体上可以分成四层：即接口层、Session层、核心引擎层和设备层。下面我就向你简要的介绍一下每一层的作用。
-接口层包括两部分，一是Web层接口；二是Native层接口。也就是说，你既可以使用浏览器开发音视频直播客户端，也可以使用Native(C++、Android、OC等)开发音视频直播客户端。
-
-Session层的主要作用是控制业务逻辑，如媒体协商、收集Candidate等，这些操作都是在Session层处理的。
-核心引擎层包括的内容就比较多了。从大的方面说，它包括音频引擎、视频引擎和网络传输层。音频引擎层包括NetEQ、音频编解码器（如OPUS、iLBC)、3A等。视频引擎包括JitterBuffer、视频编解码器（VP8/VP9/H264)等。网络传输层包括SRTP、网络I/O多路复用、P2P等。
-
-设备层主要与硬件打交道，它涉及的内容包括：在各终端设备上进行音频的采集与播放、视频的采集以及网络层等。这部分内容会在本书的最后一章 \textbf{WebRTC源码分析}中做详细介绍。
+参考[音视频通信为什么要选择WebRTC](https://blog.avdancedu.com/b363212d/)
 ## webrtc架构
 
 ### NAT
