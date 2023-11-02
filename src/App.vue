@@ -2,28 +2,38 @@
 <template>
   <header>
     <div class="wrapper">
-      <el-row>
-        <span>对端流：</span>
-        <video id="remoteVideo"></video>
-      </el-row>
+      <el-row style="margin-top: 20px;">信令消息发送：</el-row>
       <el-row style="margin-top: 20px;">
         <el-button @click="clickUser('user1')">通知websocket我的身份1</el-button>
         <el-button @click="clickUser('user2')">通知websocket我的身份2</el-button>
         <el-button @click="sendSDP">发送媒体描述</el-button>
         <el-button @click="sendIce">发送ice信息</el-button>
       </el-row>
+      <el-row style="margin-top: 20px;">媒体采集：</el-row>
       <el-row style="margin-top: 20px;">
-        <el-button @click="startLocal(1)">开启视频</el-button>
-        <el-button @click="startLocal(2)">开启麦克风</el-button>
-        <el-button @click="startLocal(3)">开启屏幕</el-button>
+        <el-button @click="startLocal(1)">采集视频</el-button>
+        <el-button @click="startLocal(2)">采集麦克风</el-button>
+        <el-button @click="startLocal(3)">采集屏幕</el-button>
+      </el-row>
+      <el-row style="margin-top: 20px;">媒体协商：</el-row>
+      <el-row style="margin-top: 20px;">
         <el-button @click="createPeer">创建peerConnection实例</el-button>
-        <el-button @click="addTrack">往实例添加流轨道</el-button>
+        <el-button @click="addTrack">往实例添加媒体轨道</el-button>
         <el-button @click="createOffer">createOffer创建本地媒体描述</el-button>
       </el-row>
       <el-row style="margin-top: 20px;">
         <el-button @click="addRemoteSDP">添加对端媒体描述</el-button>
-        <el-button @click="addRemoteIce">添加对端ice</el-button>
         <el-button @click="createAnswer">createAnswer应答对方媒体描述</el-button>
+      </el-row>
+      <el-row style="margin-top: 20px;">ICE交互：</el-row>
+      <el-row style="margin-top: 20px;">
+        <el-button @click="addRemoteIce">添加对端ice</el-button>
+      </el-row>
+
+      
+      <el-row style="margin-top: 50px;">
+        <span>对端流：</span>
+        <video id="remoteVideo"></video>
       </el-row>
     </div>
   </header>
