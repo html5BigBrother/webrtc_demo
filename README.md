@@ -222,6 +222,3 @@ pcInstance.value.createAnswer().then(answer => {
 
 ## 简易demo
 [https://github.com/html5BigBrother/webrtc_demo](https://github.com/html5BigBrother/webrtc_demo)
-
-## 参考
-[音视频通信为什么要选择WebRTC](https://blog.avdancedu.com/b363212d/)
