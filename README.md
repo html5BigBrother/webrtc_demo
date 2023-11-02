@@ -63,19 +63,18 @@ webRTC的NAT穿透是一整个机制，我们管它叫ICE（Interactive Connecti
 
 ## 通信过程
 ### 生命周期
-1. 发布端 通过 navigator.mediaDevices.getUserMedia() 捕捉本地媒体
-2. 发布端 创建一个RTCPeerConnection 并调用 RTCPeerConnection.addTrack()
-3. 发布端 调用 RTCPeerConnection.createOffer() 来创建一个提议 (offer).
-4. 发布端 调用 RTCPeerConnection.setLocalDescription() 将提议 (Offer) 设置为本地描述
-5. setLocalDescription() 之后，发布端 请求 STUN 服务创建 ice 候选 (ice candidates)
+1. 发布端 通过 navigator.mediaDevices.getUserMedia() 采集本地媒体流
+2. 发布端 创建一个RTCPeerConnection 并调用 RTCPeerConnection.addTrack() 添加媒体轨道
+3. 发布端 调用 RTCPeerConnection.createOffer() 来创建一个媒体描述信息（offer）.
+4. 发布端 调用 RTCPeerConnection.setLocalDescription() 将offer设置为本地描述
+5. setLocalDescription() 之后，发布端 请求 STUN 服务创建 ice 候选人列表 (ice candidates)
 6. 发布端 通过信令服务器将offer和ice信息发送给本次呼叫的接收端
 7. 接收端 创建一个 RTCPeerConnection 实例,并且绑定ontrack监听事件
 8. 接收端 收到了offer信息并调用 RTCPeerConnection.setRemoteDescription() 将其记录为远程描述 (也就是连接的另一端的描述)
-9. 接收端 通过 RTCPeerConnection.createAnswer() 创建一个应答。
-10. 接收端 调用 RTCPeerConnection.setLocalDescription() 将应答 (answer) 设置为本地描述。此时，接收端已经获知连接双方的配置了。
+9. 接收端 通过 RTCPeerConnection.createAnswer() 创建一个媒体描述消息（answer）。
+10. 接收端 调用 RTCPeerConnection.setLocalDescription() 将answer设置为本地描述。此时，接收端已经获知连接双方的配置了。
 11. 接收端 通过信令服务器将answer生成的offer以及ice信息传递到发布端。
-12. 发布端 接受到应答。
-13. 发布端 调用 RTCPeerConnection.setRemoteDescription() 将应答设定为远程描述。如此，发布端 已经获知连接双方的配置了。
+12. 发布端 接受到消息后，调用 RTCPeerConnection.setRemoteDescription() 将应答设定为远程描述。如此，发布端 已经获知连接双方的配置了。
 
 ### 媒体采集
 #### 媒体流（MediaStream）

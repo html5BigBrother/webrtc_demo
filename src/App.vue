@@ -55,7 +55,7 @@ const remoteIceList = ref(null)
 const remoteUser = computed(() => userName.value === 'user1' ? 'user2' : 'user1')
 
 onMounted(() => {
-  ws.value = new WebSocket("ws://localhost:8888");
+  ws.value = new WebSocket("ws://localhost:9999");
   const iceList = []
   ws.value.onmessage = (event) => {
     const data = JSON.parse(event.data)
